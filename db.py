@@ -1,6 +1,3 @@
-import pymysql
-import string
-import aiomysql
 
 
 updates = 0
