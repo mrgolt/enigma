@@ -28,6 +28,8 @@ services:
     restart: always
     ports:
       - 3306:3306
+    expose:
+      - 3306
     volumes:
       - ./lic.sql:/docker-entrypoint-initdb.d/lic.sql
     environment:
