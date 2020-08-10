@@ -4,6 +4,7 @@ services:
 
   web:
     image: php:7.0-apache
+    container_name: web
     volumes:
     - ./src:/var/www/html
     ports:
@@ -11,6 +12,7 @@ services:
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
     restart: always
     environment:
       - PMA_ARBITRARY=1
@@ -41,6 +43,7 @@ services:
 
   enigma:
     build: .
+    container_name: enigma
     restart: always
     ports:
       - "9999:9999"
