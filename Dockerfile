@@ -8,6 +8,6 @@ RUN apk add --update py-pip \
 
 COPY . .
 
-CMD ["./s06.py"]
+CMD ["python", "-u", "./s06.py"]
 
 ENTRYPOINT ["python"]
