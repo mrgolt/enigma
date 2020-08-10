@@ -64,7 +64,7 @@ async def handle_echo(reader, writer):
             message = ""
         
         if datetime.now() > check_time:
-            print ("Check license")
+            #print ("Check license")
             message = "exit"
             
         #if len(message.split()) > 0:
@@ -178,7 +178,7 @@ async def handle_echo(reader, writer):
             dbid = await select_client(client_id, cursor)
             #print (str(dbid))
             if (dbid and ver and dbid['valid'] > datetime.now()):
-                print("New connection: "+ip)
+                #print("New connection: "+ip)
                 broker = message.split(":")[3]
                 mode = message.split(":")[2]
                 auth = 'authaccept\r\n'
