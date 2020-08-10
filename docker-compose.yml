@@ -5,9 +5,9 @@ services:
   web:
     image: php:7.0-apache
     volumes:
-    - /src:/var/www/html
+    - ./src:/var/www/html
     ports:
-    - 8081
+    - "8082:80"
 
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
