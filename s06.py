@@ -276,7 +276,7 @@ async def commands():
 
 async def start():
     server = await asyncio.start_server(
-        handle_echo, 'enigmafx.ru', 9999)
+        handle_echo, 'localhost', 9999)
 
     addr = server.sockets[0].getsockname()
     print(f'Serving on {addr}')
