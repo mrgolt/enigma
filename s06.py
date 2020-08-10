@@ -42,7 +42,7 @@ async def handle_echo(reader, writer):
         if not client in clients:
             clients.append(client)
             check_time = datetime.fromtimestamp(datetime.now().timestamp() + 60 * 10 * 1)
-            db = pymysql.connect("db", "lic", "6M9j9P4q", "lic", charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor,autocommit=True)
+            db = pymysql.connect("localhost", "lic", "6M9j9P4q", "lic", charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor,autocommit=True)
             cursor = db.cursor()
             
         try:
@@ -255,7 +255,7 @@ async def handle_echo(reader, writer):
 
 
 async def commands():
-    db = pymysql.connect("db", "lic", "6M9j9P4q", "lic", charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor,autocommit=True)
+    db = pymysql.connect("localhost", "lic", "6M9j9P4q", "lic", charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor,autocommit=True)
     db.ping()
     cursor = db.cursor()
     global command
