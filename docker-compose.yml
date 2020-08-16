@@ -45,6 +45,8 @@ services:
       interval: 10s
       timeout: 2s
       retries: 10
+    logging:
+      driver: "none"
 
   enigma:
     build: .
