@@ -52,4 +52,5 @@ services:
     links:
       - db
     depends_on:
-      - db
+      db:
+        condition: service_healthy
