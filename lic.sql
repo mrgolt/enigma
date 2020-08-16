@@ -30,7 +30,7 @@ CREATE TABLE `control` (
   `client_id` int(11) DEFAULT NULL,
   `ip` varchar(255) DEFAULT NULL,
   `broker_id` set('FOREX4YOU','ROBOFOREX') DEFAULT NULL,
-  `mode` set('UltraConservative','Conservative','Normal','Agressive','ULTRA') DEFAULT 'UltraConservative',
+  `mode` set('UltraConservative','Conservative','Normal','Agressive','ULTRA','User') DEFAULT 'UltraConservative',
   `broker_mode` int(11) DEFAULT NULL,
   `risk` float DEFAULT NULL,
   `volatility` int(11) DEFAULT NULL,
