@@ -211,7 +211,19 @@ async def handle_echo(reader, writer):
                     except:
                         break
                     break
-                await add_client(client_id, ip, broker, mode, cursor)
+                try:
+                    await add_client(client_id, ip, broker, mode, cursor)
+                except:
+                    print("ERROR", client_id, ip, broker, mode)
+                    clients.pop(clients.index(client))
+                    await asyncio.sleep(5)
+                    writer.close()
+                    try:
+                        await remove_client(ip, cursor)
+                        db.close()
+                    except:
+                        break
+                    break
             else:
                 #print("Close the connection" + str(client))
                 auth = "authlic\r\n"
