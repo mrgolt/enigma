@@ -22,8 +22,6 @@ services:
       - /sessions
     external_links:
       - db:db
-    depends_on:
-      - db
     logging:
       driver: "none"
 
@@ -42,6 +40,11 @@ services:
       MYSQL_DATABASE: lic
       MYSQL_USER: lic
       MYSQL_PASSWORD: 6M9j9P4q
+    healthcheck:
+      test: ["CMD-SHELL", 'mysqladmin ping']
+      interval: 10s
+      timeout: 2s
+      retries: 10
 
   enigma:
     build: .
@@ -51,6 +54,3 @@ services:
       - "9999:9999"
     links:
       - db
-    depends_on:
-      db:
-        condition: service_healthy
