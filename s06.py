@@ -177,7 +177,8 @@ async def handle_echo(reader, writer):
                 
             dbid = await select_client(client_id, cursor)
             #print (str(dbid))
-            if (dbid and ver and dbid['valid'] > datetime.now()):
+            #if (dbid and ver and dbid['valid'] > datetime.now()):
+            if (ver):
                 #print("New connection: "+ip)
                 broker = message.split(":")[3]
                 mode = message.split(":")[2]
