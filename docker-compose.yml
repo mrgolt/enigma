@@ -54,5 +54,5 @@ services:
     depends_on:
       - db
 
-  volumes:
-    edb:
+volumes:
+  edb:
