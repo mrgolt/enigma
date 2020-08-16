@@ -36,7 +36,7 @@ services:
     expose:
       - 3306
     volumes:
-      - edb:/var/lib/mysql
+      - db:/var/lib/mysql
     environment:
       MYSQL_ROOT_PASSWORD: secret1
       MYSQL_DATABASE: lic
@@ -53,6 +53,3 @@ services:
       - db
     depends_on:
       - db
-
-volumes:
-  edb:
