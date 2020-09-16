@@ -50,7 +50,11 @@ async def get_updates_param(cursor):
                 if 'ULTRA' in upd[0]['mode']:
                     query = """UPDATE `control` SET `apply` = 'run', `broker_mode` = '{}', `risk` = '{}', `tp` = '{}', `sl` = '{}', `time_protect` = '{}', `a` = '{}', `b` = '{}', `c` = '{}' WHERE `client_id` IS NULL AND `mode` <> 'ULTRA' AND `broker_id` = '{}' """.format(upd[0]['broker_mode'],upd[0]['risk'], upd[0]['tp'], upd[0]['sl'], upd[0]['time_protect'], upd[0]['a'], upd[0]['b'], upd[0]['c'],upd[0]['broker_id'])
                 else:
-                    query = """UPDATE `control` SET `apply` = 'run', `broker_mode` = '{}', `risk` = '{}', `tp` = '{}', `sl` = '{}', `time_protect` = '{}', `a` = '{}', `b` = '{}', `c` = '{}' WHERE `broker_id` = '{}' and `mode` = '{}'""".format(upd[0]['broker_mode'],upd[0]['risk']*Mode[upd[0]['mode']],upd[0]['tp'],upd[0]['sl'],upd[0]['time_protect'],upd[0]['a'],upd[0]['b'],upd[0]['c'],upd[0]['broker_id'],upd[0]['mode'])
+                    #query = """UPDATE `control` SET `apply` = 'run', `broker_mode` = '{}', `risk` = '{}', `tp` = '{}', `sl` = '{}', `time_protect` = '{}', `a` = '{}', `b` = '{}', `c` = '{}' WHERE `broker_id` = '{}' and `mode` = '{}'""".format(upd[0]['broker_mode'],upd[0]['risk']*Mode[upd[0]['mode']],upd[0]['tp'],upd[0]['sl'],upd[0]['time_protect'],upd[0]['a'],upd[0]['b'],upd[0]['c'],upd[0]['broker_id'],upd[0]['mode'])
+                    query = """UPDATE `control` SET `apply` = 'run', `broker_mode` = '{}', `risk` = '{}', `tp` = '{}', `sl` = '{}', `time_protect` = '{}', `a` = '{}', `b` = '{}', `c` = '{}' WHERE `broker_id` = '{}' and `mode` = '{}'""".format(
+                        upd[0]['broker_mode'], upd[0]['risk'], upd[0]['tp'], upd[0]['sl'],
+                        upd[0]['time_protect'], upd[0]['a'], upd[0]['b'], upd[0]['c'], upd[0]['broker_id'],
+                        upd[0]['mode'])
                 #print (query)
                 cursor.execute(query)
                 query = "UPDATE `control` SET `apply` = NULL, `trade` = NULL WHERE `id` = '{}'".format(upd[0]['id'])
